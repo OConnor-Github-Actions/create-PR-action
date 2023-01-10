@@ -1,0 +1,13 @@
+name: "Create PR Action"
+description: "Creates PR"
+
+inputs:
+  branch:
+    description: 'Develop Branch to merge into'
+    default: develop
+
+runs:
+  using: "composite"
+  steps: 
+    - run:  gh pr create -B ${{inputs.branch}} -H ${{inputs.CNGA}} --title "$CNGA" --body "Auto-PR created as part of the EOS Bot"
+      shell: bash
